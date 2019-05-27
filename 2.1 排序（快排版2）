@@ -19,7 +19,7 @@ int quickSortPartition(int numList[], int start, int end){
             --end;
         }
     }
-    numList[start] = standard;
+   // numList[start] = standard;
     return start;
     
     //quickSort(numList, tempStart, index-1);
