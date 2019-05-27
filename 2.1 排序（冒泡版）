@@ -1,3 +1,4 @@
+冒泡排序方法解决，冒泡函数是自己实现的
 #include <stdio.h>
 int main () {
 //    数的个数n
