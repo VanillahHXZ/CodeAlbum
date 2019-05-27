@@ -1,0 +1,50 @@
+&&重要！！自己写快排代码完成（递归）
+#include <stdlib.h>
+#include <stdio.h>
+int quickSortPartition(int numList[], int start, int end){
+    int standard = numList[start];
+    while(start < end){
+        while (start < end && numList[end] >= standard){
+            --end;
+        }
+        if(start < end){
+            numList[start] = numList[end];
+            ++start;
+        }
+        while(start < end && numList[start] <= standard){
+            ++start;
+        }
+        if(start < end){
+             numList[end] = numList[start];
+            --end;
+        }
+    }
+    numList[start] = standard;
+    return start;
+    
+    //quickSort(numList, tempStart, index-1);
+    //quickSort(numList, index+1, tempEnd);
+}
+void quickSort(int numList[], int start, int end){
+    if(start < end){
+        int i = quickSortPartition(numList, start, end);
+        quickSort(numList, start, i -1);
+        quickSort(numList, i+1, end);
+    }
+}
+int main(){
+    int n;
+    //    数的列表
+    int numList[100];
+    while (scanf("%d", &n) != EOF){
+        for (int i = 0; i < n; i++){
+            scanf("%d", &numList[i]);
+        }
+        quickSort(numList, 0, n-1);
+        for (int i = 0; i< n; i++){
+            printf("%d ", numList[i]);
+        }
+    printf("\n");
+    }
+    return 0;
+}
